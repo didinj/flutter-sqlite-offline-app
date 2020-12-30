@@ -151,7 +151,7 @@ class _AddDataWidgetState extends State<AddDataWidget> {
                                     _addFormKey.currentState.save();
                                     final initDB = dbconn.initDB();
                                     initDB.then((db) async {
-                                      await dbconn.insertTrans(Trans(transDate: _transDateController.text, transName: _transNameController.text, transType: transType, amount: int.parse(_amountController.text)));
+                                      dbconn.insertTrans(Trans(transDate: _transDateController.text, transName: _transNameController.text, transType: transType, amount: int.parse(_amountController.text)));
                                     });
 
                                     Navigator.pop(context) ;
