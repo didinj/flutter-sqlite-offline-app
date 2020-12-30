@@ -38,7 +38,7 @@ class _DetailWidgetState extends State<DetailWidget> {
                         child: Column(
                           children: <Widget>[
                             Text('Transaction Name:', style: TextStyle(color: Colors.black.withOpacity(0.8))),
-                            Text(widget.trans.transName, style: Theme.of(context).textTheme.title)
+                            Text(widget.trans.transName, style: Theme.of(context).textTheme.headline6)
                           ],
                         ),
                       ),
@@ -47,7 +47,7 @@ class _DetailWidgetState extends State<DetailWidget> {
                         child: Column(
                           children: <Widget>[
                             Text('Transaction Type:', style: TextStyle(color: Colors.black.withOpacity(0.8))),
-                            Text(widget.trans.transType, style: Theme.of(context).textTheme.title)
+                            Text(widget.trans.transType, style: Theme.of(context).textTheme.headline6)
                           ],
                         ),
                       ),
@@ -56,7 +56,7 @@ class _DetailWidgetState extends State<DetailWidget> {
                         child: Column(
                           children: <Widget>[
                             Text('Amount:', style: TextStyle(color: Colors.black.withOpacity(0.8))),
-                            Text(widget.trans.amount.toString(), style: Theme.of(context).textTheme.title)
+                            Text(widget.trans.amount.toString(), style: Theme.of(context).textTheme.headline6)
                           ],
                         ),
                       ),
@@ -65,7 +65,7 @@ class _DetailWidgetState extends State<DetailWidget> {
                         child: Column(
                           children: <Widget>[
                             Text('Transaction Date:', style: TextStyle(color: Colors.black.withOpacity(0.8))),
-                            Text(widget.trans.transDate, style: Theme.of(context).textTheme.title)
+                            Text(widget.trans.transDate, style: Theme.of(context).textTheme.headline6)
                           ],
                         ),
                       ),
@@ -102,7 +102,7 @@ class _DetailWidgetState extends State<DetailWidget> {
   }
 
   _navigateToEditScreen (BuildContext context, Trans trans) async {
-    final result = await Navigator.push(
+    await Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => EditDataWidget(trans)),
     );

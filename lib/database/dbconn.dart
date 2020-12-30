@@ -28,10 +28,10 @@ class DbConn {
     return database;
   }
 
-  Future<Trans> insertTrans(Trans trans) async {
-    final Database db = await database;
+  void insertTrans(Trans trans) async {
+    final Database db = database;
 
-    await db.insert(
+    db.insert(
       'trans',
       trans.toMap(),
       conflictAlgorithm: ConflictAlgorithm.replace,
@@ -39,7 +39,7 @@ class DbConn {
   }
 
   Future<List<Trans>> trans() async {
-    final Database db = await database;
+    final Database db = database;
 
     final List<Map<String, dynamic>> maps = await db.query('trans');
 
@@ -55,7 +55,7 @@ class DbConn {
   }
 
   Future<int> countTotal() async {
-    final Database db = await database;
+    final Database db = database;
     final int sumEarning = Sqflite
         .firstIntValue(await db.rawQuery('SELECT SUM(amount) FROM trans WHERE type = "earning"'));
     final int sumExpense = Sqflite
@@ -64,7 +64,7 @@ class DbConn {
   }
 
   Future<void> updateTrans(Trans trans) async {
-    final db = await database;
+    final db = database;
 
     await db.update(
       'trans',
@@ -75,7 +75,7 @@ class DbConn {
   }
 
   Future<void> deleteTrans(int id) async {
-    final db = await database;
+    final db = database;
 
     await db.delete(
       'trans',

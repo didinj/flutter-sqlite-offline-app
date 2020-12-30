@@ -6,7 +6,6 @@ import 'package:flutter_offline/database/dbconn.dart';
 import 'package:flutter_offline/translist.dart';
 
 void main() async {
-  await DbConn;
   runApp(MyApp());
 }
 
@@ -81,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
               builder: (context, snapshot) {
                 return transList.length > 0? new TransList(trans: transList):
                 new Center(child:
-                new Text('No data found, tap plus button to add!', style: Theme.of(context).textTheme.title));
+                new Text('No data found, tap plus button to add!', style: Theme.of(context).textTheme.headline6));
               },
             )
         ),
@@ -99,7 +98,7 @@ class _MyHomePageState extends State<MyHomePage> {
             builder: (context, snapshot)  {
               return Padding(
                 padding: EdgeInsets.all(16.0),
-                child: Text('Total: $totalCount', style: Theme.of(context).textTheme.title),
+                child: Text('Total: $totalCount', style: Theme.of(context).textTheme.headline6),
               );
             },
         ),
@@ -133,7 +132,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   _navigateToAddScreen (BuildContext context) async {
-    final result = await Navigator.push(
+    Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => AddDataWidget()),
     );
